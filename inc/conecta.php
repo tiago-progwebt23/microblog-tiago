@@ -18,7 +18,7 @@ Se der algum problema conexão (ou resultado, conexao false)
 pare tudo (die) e mostre o erro. */
 if( !$conexao ){
     die(mysqli_connect_error($conexao));
-} else {
+} /* else {
     // Senão, deu tudo certo!
     echo "<p>Beleza, banco conectado!</p>";
-}
+} */
