@@ -79,4 +79,13 @@ function lerUmUsuario($conexao, $id){
 } // fim lerUmUsuario
 
 
+// Usada em usuario-atualiza.php
+function atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo){
+    // Montamos o comando SQL de UPDATE nas colunas 
+    $sql = "UPDATE usuarios SET nome = '$nome', email = '$email',
+            senha = '$senha', tipo = '$tipo' WHERE id = $id";
 
+    // Executamos o comando
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));           
+
+} // fim atualizarUsuario
