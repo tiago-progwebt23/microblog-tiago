@@ -28,4 +28,34 @@ function verificaAcesso(){
         // Pare completamente qualquer outra execução
         exit; // ou die()
     }
-}
+} // fim verificaAcesso
+
+
+function login($id, $nome, $tipo){
+    /* Criação de variáveis de SESSÃO */
+    $_SESSION['id'] = $id;
+    $_SESSION['nome'] = $nome;
+    $_SESSION['tipo'] = $tipo;
+
+    /* As variáveis de sessão ficam disponíveis
+    para utilização durante toda a duração da sessão,
+    ou seja, enquanto o navegador não for fechado ou
+    o usuário estiver logado. */
+} // fim login
+
+
+// Usada em todas as páginas admim
+function logout(){
+    session_start();
+    session_destroy();
+    header("location:../login.php?logout");
+    exit;
+} // fim logout
+
+
+
+
+
+
+
+
