@@ -1,5 +1,13 @@
-<?php
+<?php // noticia-atualiza.php
+require_once "../inc/funcoes-noticias.php";
 require_once "../inc/cabecalho-admin.php";
+
+/* Capturando o id da notícia via URL (link dinâmico) */
+$idNoticia = $_GET['id'];
+
+/* Capturando os dados de quem está logado */
+$idUsuario = $_SESSION['id'];
+$tipoUsuario = $_SESSION['tipo'];
 ?>
 
 
