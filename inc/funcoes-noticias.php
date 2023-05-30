@@ -104,3 +104,38 @@ function lerUmaNoticia($conexao, $idNoticia,
     return mysqli_fetch_assoc($resultado);
 } // fim lerUmaNoticia
 
+
+/* Usada em noticia-atualiza.php */
+function atualizarNoticia($conexao, $titulo, $texto, $resumo,
+                        $imagem, $idNoticia, $idUsuarioLogado, 
+                        $tipoUsuarioLogado){
+
+    if($tipoUsuarioLogado == 'admin'){
+        /* SQL do admim: pode atualizar qualquer notícia  */
+        $sql = "UPDATE noticias SET 
+                    titulo = '$titulo',
+                    texto = '$texto',
+                    resumo = '$resumo',
+                    imagem = '$imagem'
+                WHERE id = $idNoticia";
+    } else {
+        /* SQL do editor: pode atualizar somente sua própria notícia */
+        $sql = "UPDATE noticias SET 
+                    titulo = '$titulo',
+                    texto = '$texto',
+                    resumo = '$resumo',
+                    imagem = '$imagem'
+                WHERE id = $idNoticia AND usuario_id = $idUsuarioLogado";
+    }       
+    
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+} // fim atualizarNoticia
+
+
+
+
+
+
+
+
+
